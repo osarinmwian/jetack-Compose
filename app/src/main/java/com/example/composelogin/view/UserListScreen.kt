@@ -1,6 +1,9 @@
+@file:Suppress("UNUSED_EXPRESSION")
+
 package com.example.composelogin.view
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.interaction.FocusInteraction
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
@@ -38,9 +41,10 @@ fun UserListScreen(){
             )
             Spacer(modifier = Modifier.height(10.dp))
             SearchBar(
-                hint = "Search..",
+                hint = "Search...",
                 modifier = Modifier.fillMaxWidth()
                     .padding(16.dp)
+
             )
         }
     }
@@ -83,7 +87,8 @@ fun SearchBar(
                 text = hint,
                 color = Color.Gray,
                 modifier = Modifier
-                    .padding(20.dp, vertical = 12.dp),
+                    .padding(20.dp, vertical = 12.dp)
+                .onFocusChanged { _: FocusState -> false }
 
             )
 
